@@ -15,11 +15,13 @@ public class EmbedTomcatServletMain {
         Connector connector = new Connector();
         connector.setPort(8080);
         tomcat.setConnector(connector);
-        
+
         //서블릿 등록
         Context context = tomcat.addContext("", "/");
         tomcat.addServlet("", "helloServlet", new HelloServlet());
         context.addServletMappingDecoded("/hello-servlet", "helloServlet");
         tomcat.start();
+
+
     }
 }
